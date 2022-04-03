@@ -447,7 +447,7 @@ describe Audited::Auditor do
     end
 
     it "should be able to reconstruct a destroyed record without history" do
-      @user.audits.delete_all
+      Audited::Audit.where(auditable: @user).delete_all
       @user.destroy
 
       revision = @user.audits.first.revision
@@ -634,7 +634,7 @@ describe Audited::Auditor do
     end
 
     it "should be empty if no audits exist" do
-      user.audits.delete_all
+      Audited::Audit.where(auditable: user).delete_all
       expect(user.revisions).to be_empty
     end
 
