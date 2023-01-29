@@ -3,8 +3,8 @@ name: CI
 on:
   pull_request:
   push:
-    branches:
-    - main
+    # branches:
+    # - main
 
 jobs:
   build:
@@ -64,15 +64,11 @@ jobs:
           - appraisal: rails52
             ruby: 3.1
 
-          # Rails 6.0 supports Ruby 2.5-2.7
+          # Rails 6.0 supports Ruby 2.5+
           - appraisal: rails60
             ruby: 2.3
           - appraisal: rails60
             ruby: 2.4
-          - appraisal: rails60
-            ruby: 3.0
-          - appraisal: rails60
-            ruby: 3.1
 
           # Rails 6.1 supports Ruby 2.5+
           - appraisal: rails61
